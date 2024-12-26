@@ -1,0 +1,25 @@
+#  Virtual Environment
+.venv/
+.envrc
+.direnv/
+
+# Python file caches
+__pycache__/
+**/*.pyc
+
+# Python setup.py distributions
+dist/
+build/
+*.egg-info/
+
+# Hypothesis for testing
+.hypothesis/
+
+# Local testing cache
+testing/
+
+# Editor support files
+# PyCharm
+.idea/
+# Visual Studio Code
+.vscode/
