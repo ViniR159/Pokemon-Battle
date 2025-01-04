@@ -1,0 +1,38 @@
+<Tela>:
+    FloatLayout:
+        orientation: "vertical"
+
+        Label:
+            id: Nome
+            text: 'Carregando Pokémon...'
+            size_hint: 0.3, 0.1
+            pos_hint: {'center_x': 0.3, 'center_y': 0.9}
+            color: 1, 1, 1, 1  # Cor do texto (branco)
+            font_size: 18
+        Image:
+            source: "background.png" 
+            allow_stretch: True  # Permite redimensionar
+            keep_ratio: False  # Ajusta à tela
+            size: self.parent.size
+            pos: self.parent.pos
+
+        AsyncImage:
+            id: pokemon
+            source: ''
+            allow_stretch: True
+            size_hint: 0.4, 0.4
+            smooth: False
+            antialias: False
+            pos_hint: {'center_x': 0.3, 'center_y': 0.3}
+
+        AsyncImage:
+            id: pokemonAdv
+            source: '' 
+            allow_stretch: True
+            size_hint: 0.45, 0.4
+            smooth: False
+            antialias: False
+            pos_hint: {'center_x': 0.65, 'center_y': 0.6}
+
+        Label:
+            id: NomeAdv
