@@ -1,38 +1,108 @@
 <Tela>:
     FloatLayout:
         orientation: "vertical"
+        Image:
+            source: "background.png" 
+            allow_stretch: True
+            keep_ratio: False
+            size: self.parent.size
+            pos: self.parent.pos
 
         Label:
             id: Nome
             text: 'Carregando Pokémon...'
-            size_hint: 0.3, 0.1
-            pos_hint: {'center_x': 0.3, 'center_y': 0.9}
-            color: 1, 1, 1, 1  # Cor do texto (branco)
+            size_hint: 0.2, 0.1
+            pos_hint: {'center_x': 0.2, 'center_y': 0.8}
             font_size: 18
-        Image:
-            source: "background.png" 
-            allow_stretch: True  # Permite redimensionar
-            keep_ratio: False  # Ajusta à tela
-            size: self.parent.size
-            pos: self.parent.pos
+
+        ProgressBar:
+            id: Vida
+            max: 100
+            value: 100  # Vida inicial
+            size_hint: 0.3, 0.03
+            pos_hint: {'center_x': 0.2, 'center_y': 0.75}
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 1  # Cor do fundo da barra (cinza escuro)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            canvas:
+                Color:
+                    rgba: 0, 1, 0, 1  # Cor do progresso (verde)
+                Rectangle:
+                    size: (self.width * self.value_normalized, self.height)  # Progresso proporcional
+                    pos: self.pos
+        Label:
+            id: NomeAdv
+            text: 'Carregando Pokémon...'
+            size_hint: 0.2, 0.1
+            pos_hint: {'center_x': 0.8, 'center_y': 0.8}
+            font_size: 18
+
+        ProgressBar:
+            id: VidaAdv
+            max: 100
+            value: 100
+            size_hint: 0.3, 0.03
+            pos_hint: {'center_x': 0.8, 'center_y': 0.75}
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 1  # Cor do fundo da barra (cinza escuro)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            canvas:
+                Color:
+                    rgba: 0, 1, 0, 1  # Cor do progresso (verde)
+                Rectangle:
+                    size: (self.width * self.value_normalized, self.height)  # Progresso proporcional
+                    pos: self.pos
 
         AsyncImage:
             id: pokemon
             source: ''
             allow_stretch: True
-            size_hint: 0.4, 0.4
-            smooth: False
-            antialias: False
+            size_hint: 0.5, 0.5
             pos_hint: {'center_x': 0.3, 'center_y': 0.3}
 
         AsyncImage:
             id: pokemonAdv
             source: '' 
             allow_stretch: True
-            size_hint: 0.45, 0.4
-            smooth: False
-            antialias: False
-            pos_hint: {'center_x': 0.65, 'center_y': 0.6}
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
 
-        Label:
-            id: NomeAdv
+        GridLayout:
+            cols: 2
+            rows: 2
+            size_hint: 0.8, 0.2
+            pos_hint: {'center_x': 0.5, 'y': 0.05}
+
+            Button:
+                id: Atq1
+                text: 'Atq1'
+                color: 0, 0, 0, 1
+                on_press: app.ataque_1()
+                background_normal:'Botão.png'
+
+            Button:
+                id: Atq2
+                text: 'Atq2'
+                color: 0, 0, 0, 1
+                on_press: app.ataque_1()
+                background_normal:'Botão.png'
+
+            Button:
+                id: Atq3
+                text: 'Atq3'
+                color: 0, 0, 0, 1
+                on_press: app.ataque_1()
+                background_normal:'Botão.png'
+
+            Button:
+                id: Atq4
+                text: 'Atq4'
+                color: 0, 0, 0, 1
+                on_press: app.ataque_1()
+                background_normal:'Botão.png'
