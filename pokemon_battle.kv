@@ -12,15 +12,15 @@
             id: Nome
             text: 'Carregando Pokémon...'
             size_hint: 0.2, 0.1
-            pos_hint: {'center_x': 0.2, 'center_y': 0.8}
+            pos_hint: {'center_x': 0.7, 'center_y': 0.35}
             font_size: 18
 
         ProgressBar:
             id: Vida
             max: 100
-            value: 100  # Vida inicial
+            value: 100 
             size_hint: 0.3, 0.03
-            pos_hint: {'center_x': 0.2, 'center_y': 0.75}
+            pos_hint: {'center_x': 0.7, 'center_y': 0.3}
             canvas.before:
                 Color:
                     rgba: 0.2, 0.2, 0.2, 1  # Cor do fundo da barra (cinza escuro)
@@ -37,7 +37,7 @@
             id: NomeAdv
             text: 'Carregando Pokémon...'
             size_hint: 0.2, 0.1
-            pos_hint: {'center_x': 0.8, 'center_y': 0.8}
+            pos_hint: {'center_x': 0.33, 'center_y': 0.65}
             font_size: 18
 
         ProgressBar:
@@ -45,7 +45,7 @@
             max: 100
             value: 100
             size_hint: 0.3, 0.03
-            pos_hint: {'center_x': 0.8, 'center_y': 0.75}
+            pos_hint: {'center_x': 0.33, 'center_y': 0.6}
             canvas.before:
                 Color:
                     rgba: 0.2, 0.2, 0.2, 1  # Cor do fundo da barra (cinza escuro)
