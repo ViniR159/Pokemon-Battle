@@ -14,21 +14,25 @@ print(num)
 print(numadv)
 
 pokemon = pb.pokemon(num)
+hp = next(stat.base_stat for stat in pokemon.stats if stat.stat.name == "hp")
 movimentos = [move.move.name for move in pokemon.moves]
 movimentos_aleatorios = random.sample(movimentos, 4)
+Atq0 = 10
 Atq1 = movimentos_aleatorios[0]
-
 Atq2 = movimentos_aleatorios[1]
 Atq3 = movimentos_aleatorios[2]
 Atq4 = movimentos_aleatorios[3]
 
-print(Atq1)
-print(Atq2)
-print(Atq3)
-print(Atq4)
+
+# print(Atq1)
+# print(Atq2)
+# print(Atq3)
+# print(Atq4)
+
 
 
 pokemonAdv = pb.pokemon(numadv)
+hpAdv = next(stat.base_stat for stat in pokemonAdv.stats if stat.stat.name == "hp")
 movimentosAdv = [move.move.name for move in pokemonAdv.moves]
 movimentos_aleatoriosAdv = random.sample(movimentosAdv, 4)
 
@@ -73,39 +77,52 @@ class Tela(BoxLayout):
         sprite_url = sprites.back_default
         self.ids.pokemon.source = sprite_url
         self.ids.Nome.text = pokemon.name.capitalize() 
+
+        self.tela.ids.Vida.max = hp
+        self.tela.ids.VidaAdv.max = hpAdv
+        self.tela.ids.Vida.value = hp
+        self.tela.ids.VidaAdv.value = hpAdv
  
 
 
 class pokemon_battle(App):
-    Hp = 100
-    HpAdv = 100
+    Hp = hp
+    HpAdv = hpAdv
 
     def build(self):
         self.tela = Tela()
         return self.tela
 
     def ataque_1(self):
-        self.HpAdv -= 50
+        if isinstance(Atq0, int):
+
+            self.HpAdv -= Atq0
+            print(f"Dano causado: {Atq0}")
+        else:
+            print(f"{Atq0} não é um ataque de dano.")
+        
         print(self.HpAdv)
-        self.tela.ids.Vida.value = self.Hp
-        self.tela.ids.VidaAdv.value = self.HpAdv
+        
+        self.tela.ids.VidaAdv.value = max(0, self.HpAdv)
+        self.tela.ids.Vida.value = max(0, self.Hp)
+        
         botao = [self.tela.ids.Atq1, self.tela.ids.Atq2, self.tela.ids.Atq3, self.tela.ids.Atq4]
         
 
         if self.Hp <= 0:
             print("Seu Pokémon morreu!")
             self.tela.ids.pokemon.color = (0.5, 0.5, 0.5, 1)
-            self.tela.ids.Nome.text = pokemon.name.capitalize()
-            for botao in botao:
+            self.tela.ids.Nome.text = "Derrotado!"
+            for botao in [self.tela.ids.Atq1, self.tela.ids.Atq2, self.tela.ids.Atq3, self.tela.ids.Atq4]:
                 botao.disabled = True
 
-
-        elif self.HpAdv <= 0:
+        if self.HpAdv <= 0:
             print("O Pokémon adversário morreu!")
             self.tela.ids.pokemonAdv.color = (0.5, 0.5, 0.5, 1)
-            self.tela.ids.NomeAdv.text = pokemonAdv.name.capitalize()
-            for botao in botao:
+            self.tela.ids.NomeAdv.text = "Derrotado!"
+            for botao in [self.tela.ids.Atq1, self.tela.ids.Atq2, self.tela.ids.Atq3, self.tela.ids.Atq4]:
                 botao.disabled = True
+            return
 
 
             
