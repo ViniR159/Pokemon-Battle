@@ -78,10 +78,10 @@ class Tela(BoxLayout):
         self.ids.pokemon.source = sprite_url
         self.ids.Nome.text = pokemon.name.capitalize() 
 
-        self.tela.ids.Vida.max = hp
-        self.tela.ids.VidaAdv.max = hpAdv
-        self.tela.ids.Vida.value = hp
-        self.tela.ids.VidaAdv.value = hpAdv
+        self.ids.Vida.max = hp
+        self.ids.VidaAdv.max = hpAdv
+        self.ids.Vida.value = hp
+        self.ids.VidaAdv.value = hpAdv
  
 
 
@@ -105,7 +105,7 @@ class pokemon_battle(App):
         
         self.tela.ids.VidaAdv.value = max(0, self.HpAdv)
         self.tela.ids.Vida.value = max(0, self.Hp)
-        
+
         botao = [self.tela.ids.Atq1, self.tela.ids.Atq2, self.tela.ids.Atq3, self.tela.ids.Atq4]
         
 
