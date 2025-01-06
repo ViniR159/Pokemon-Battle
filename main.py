@@ -10,34 +10,24 @@ cache.API_CACHE
 num = random.randint(1,151)
 numadv = random.randint(1,1025)
 
-print(num)
-print(numadv)
+# print(num)
+# print(numadv)
 
 pokemon = pb.pokemon(num)
 hp = next(stat.base_stat for stat in pokemon.stats if stat.stat.name == "hp")
-movimentos = [move.move.name for move in pokemon.moves]
+movimentos = [move.move for move in pokemon.moves]
 movimentos_aleatorios = random.sample(movimentos, 4)
-Atq0 = 10
-Atq1 = movimentos_aleatorios[0]
-Atq2 = movimentos_aleatorios[1]
-Atq3 = movimentos_aleatorios[2]
-Atq4 = movimentos_aleatorios[3]
+Atq = [movimentos_aleatorios[0], movimentos_aleatorios[1], movimentos_aleatorios[2], movimentos_aleatorios[3]]
 
 
-# print(Atq1)
-# print(Atq2)
-# print(Atq3)
-# print(Atq4)
-
+print(Atq[0].power)
 
 
 pokemonAdv = pb.pokemon(numadv)
 hpAdv = next(stat.base_stat for stat in pokemonAdv.stats if stat.stat.name == "hp")
-movimentosAdv = [move.move.name for move in pokemonAdv.moves]
+movimentosAdv = [move.move for move in pokemonAdv.moves]
 movimentos_aleatoriosAdv = random.sample(movimentosAdv, 4)
 
-# charmander = pb.pokemon('charmander')
-# numero_do_charmander = charmander.id
 
 sprites = pokemon.sprites
 spritesadv = pokemonAdv.sprites
@@ -70,10 +60,10 @@ class Tela(BoxLayout):
         sprite_urlAdv = spritesadv.front_default
         self.ids.pokemonAdv.source = sprite_urlAdv
         self.ids.NomeAdv.text = pokemonAdv.name.capitalize()
-        self.ids.Atq1.text = Atq1
-        self.ids.Atq2.text = Atq2
-        self.ids.Atq3.text = Atq3
-        self.ids.Atq4.text = Atq4
+        self.ids.Atq1.text = Atq[0].name
+        self.ids.Atq2.text = Atq[1].name
+        self.ids.Atq3.text = Atq[2].name
+        self.ids.Atq4.text = Atq[3].name
         sprite_url = sprites.back_default
         self.ids.pokemon.source = sprite_url
         self.ids.Nome.text = pokemon.name.capitalize() 
@@ -93,13 +83,13 @@ class pokemon_battle(App):
         self.tela = Tela()
         return self.tela
 
-    def ataque_1(self):
-        if isinstance(Atq0, int):
+    def ataque(self, atq):
+        if isinstance(Atq[0].power, int):
 
-            self.HpAdv -= Atq0
-            print(f"Dano causado: {Atq0}")
+            self.HpAdv -= Atq[0].power
+            print("Dano causado")
         else:
-            print(f"{Atq0} não é um ataque de dano.")
+            print(" não é um ataque de dano.")
         
         print(self.HpAdv)
         
