@@ -178,17 +178,22 @@ movimentos_aleatorios = random.sample(movimentos, 4)
 Atq = [movimentos_aleatorios[0], movimentos_aleatorios[1], movimentos_aleatorios[2], movimentos_aleatorios[3]]
 
 
-print(Atq[0].power)
-print(Atq[1].power)
-print(Atq[2].power)
-print(Atq[3].power)
+print(Atq[0])
+print(Atq[1])
+print(Atq[2])
+print(Atq[3])
 
 
 pokemonAdv = pb.pokemon(numadv)
 hpAdv = next(stat.base_stat for stat in pokemonAdv.stats if stat.stat.name == "hp")
 movimentosAdv = [move.move for move in pokemonAdv.moves]
 movimentos_aleatoriosAdv = random.sample(movimentosAdv, 4)
+AtqAdv = [movimentos_aleatoriosAdv[0], movimentos_aleatoriosAdv[1], movimentos_aleatoriosAdv[2], movimentos_aleatoriosAdv[3]]
 
+print(AtqAdv[0])
+print(AtqAdv[1])
+print(AtqAdv[2])
+print(AtqAdv[3])
 
 sprites = pokemon.sprites
 spritesadv = pokemonAdv.sprites
