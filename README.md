@@ -2,6 +2,12 @@
 
 **Pokémon Battle** é um programa divertido e interativo criado em Python que simula batalhas entre dois Pokémon. Toda vez que você inicia o programa, dois Pokémon são escolhidos aleatoriamente para o confronto, e você pode decidir os ataques do Pokémon aliado.
 
+## 🎮 como jogar
+
+Apenas baixe em zip e execute o arquivo main.py
+E se divirta.
+
+
 ## 📜 Descrição
 
 O programa utiliza uma API para selecionar os Pokémon e seus respectivos ataques, garantindo uma experiência dinâmica e única a cada batalha. 
