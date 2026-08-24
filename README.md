@@ -12,34 +12,6 @@ O programa utiliza uma API para selecionar os Pokémon e seus respectivos ataque
 - Sistema interativo para o jogador escolher os ataques.
 - Baseado em dados de uma API, tornando o jogo dinâmico e atualizado.
 
-## 🎮 Como Jogar
-
-1. Clone este repositório em sua máquina:
-   ```bash
-   git clone https://github.com/ViniR159/Pokemon-Battle.git
-   ```
-2. Instale as dependências necessárias:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Execute o programa:
-   ```bash
-   python main.py
-   ```
-4. Siga as instruções no terminal para participar da batalha e escolher os ataques!
-
-## 🔧 Tecnologias Utilizadas
-
-- Python
-- API para obtenção de dados dos Pokémon e ataques
-- Bibliotecas Python (especifique aqui, como `requests`)
-
-## 🌟 Próximos Passos
-
-- Adicionar mais tipos de ataques.
-- Implementar uma interface gráfica para melhorar a experiência do usuário.
-- Salvar o histórico das batalhas.
-
 ## 🤝 Contribuições
 
 Sinta-se à vontade para contribuir com o projeto! Sugestões, melhorias e novas ideias são sempre bem-vindas.
